@@ -1,20 +1,27 @@
 package it.polito.tdp.meteo.bean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Citta {
 
 	private String nome;
+	private List<Double> medieMensiliUmidita;
 	private List<Rilevamento> rilevamenti;
 	private int counter = 0;
 	
 	public Citta(String nome) {
 		this.nome = nome;
+		this.rilevamenti = new ArrayList<>();
+		this.medieMensiliUmidita = new ArrayList<>();
+		this.inizializzaMedieMensili();
 	}
 	
 	public Citta(String nome, List<Rilevamento> rilevamenti) {
 		this.nome = nome;
-		this.rilevamenti = rilevamenti;
+		this.rilevamenti = new ArrayList<>( rilevamenti);
+		this.medieMensiliUmidita = new ArrayList<>();
+		this.inizializzaMedieMensili();
 	}
 
 	public String getNome() {
@@ -30,7 +37,7 @@ public class Citta {
 	}
 
 	public void setRilevamenti(List<Rilevamento> rilevamenti) {
-		this.rilevamenti = rilevamenti;
+		this.rilevamenti = new ArrayList<>(rilevamenti);
 	}
 
 	public int getCounter() {
@@ -73,6 +80,19 @@ public class Citta {
 	@Override
 	public String toString() {
 		return nome;
+	}
+
+	public List<Double> getMedieMensiliUmidita() {
+		return medieMensiliUmidita;
+	}
+
+	public void setMedieMensiliUmidita(List<Double> medieMensiliUmidita) {
+		this.medieMensiliUmidita = new ArrayList<>(medieMensiliUmidita);
+	}
+	private void inizializzaMedieMensili() {
+		for(int i=0; i<12; i++) {
+			this.medieMensiliUmidita.add(-1.0);
+		}
 	}
 	
 }

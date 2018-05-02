@@ -3,15 +3,15 @@ package it.polito.tdp.meteo.bean;
 public class SimpleCity {
 
 	private String nome;
-	private int costo;
+	private int costoUmidita;
 	
 	public SimpleCity(String nome) {
 		this.nome = nome;
 	}
 	
-	public SimpleCity(String nome, int costo) {
+	public SimpleCity(String nome, int umidita) {
 		this.nome = nome;
-		this.costo = costo;
+		this.costoUmidita = umidita;
 	}
 
 	public String getNome() {
@@ -22,12 +22,12 @@ public class SimpleCity {
 		this.nome = nome;
 	}
 	
-	public int getCosto() {
-		return costo;
+	public int getCostoUmidita() {
+		return costoUmidita;
 	}
 
-	public void setCosto(int costo) {
-		this.costo = costo;
+	public void setCostoUmidita(int umidita) {
+		this.costoUmidita = umidita;
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public class SimpleCity {
 
 	@Override
 	public String toString() {
-		return nome;
+		return nome +" "+ this.costoUmidita+"£";
 	}
 	
 }
